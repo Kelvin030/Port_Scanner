@@ -1,7 +1,7 @@
 import socket
 
 
-def scan_ip(site, exibir_portas_fechas=False, velocidade_scan=2):
+def scan_ip(site, show=False, speed=1):
 
     portas = [20, 21, 22, 23, 42, 43, 43, 69, 80, 109, 110,
               115, 118, 143,156, 220, 389, 443, 465, 513, 514,
@@ -12,13 +12,13 @@ def scan_ip(site, exibir_portas_fechas=False, velocidade_scan=2):
     for porta in portas:
         try:
             cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            cliente.settimeout(velocidade_scan)
+            cliente.settimeout(speed)
             resultado = cliente.connect_ex((site,porta))
         except Exception as erro:
             print(f'Ocorreu um erro: {erro}')
             break
         else:
-            if exibir_portas_fechas:
+            if show:
                 if resultado == 0:
                     print(porta, "OPEN")
                 else:
