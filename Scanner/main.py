@@ -1,7 +1,5 @@
-import socket
-
-
 def scan_ip(site, show=False, speed=1):
+    import socket
 
     portas = [20, 21, 22, 23, 42, 43, 43, 69, 80, 109, 110,
               115, 118, 143,156, 220, 389, 443, 465, 513, 514,
